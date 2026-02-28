@@ -1,0 +1,31 @@
+---
+baseImage: node:20-alpine
+ports:
+  - port: 3000
+    protocol: http
+environment:
+  NODE_ENV: development
+  PORT: "3000"
+  APP_VERSION: "1.0.0"
+resources:
+  cpu: "250m"
+  memory: "256Mi"
+workingDirectory: /workspace
+devEnvironments:
+  - name: node-20
+    branch: main
+    steps:
+      - npm ci
+      - npm run dev
+  - name: node-18
+    branch: main
+    baseImage: node:18-alpine
+    steps:
+      - npm ci
+      - npm run dev
+  - name: node-22
+    branch: main
+    baseImage: node:22-alpine
+    steps:
+      - npm ci
+      - npm run dev
