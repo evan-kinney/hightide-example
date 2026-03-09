@@ -1,5 +1,8 @@
 ---
 baseImage: node:20-alpine
+steps:
+  - npm ci
+  - npm run dev
 ports:
   - port: 3000
     protocol: http
@@ -11,21 +14,13 @@ resources:
   cpu: "250m"
   memory: "256Mi"
 workingDirectory: /workspace
+onUpdate: restart
 devEnvironments:
   - name: node-20
     branch: main
-    steps:
-      - npm ci
-      - npm run dev
   - name: node-18
     branch: main
     baseImage: node:18-alpine
-    steps:
-      - npm ci
-      - npm run dev
   - name: node-22
     branch: main
     baseImage: node:22-alpine
-    steps:
-      - npm ci
-      - npm run dev
