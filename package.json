@@ -1,6 +1,6 @@
 {
   "name": "hightide-example-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple Express app used to verify a hightide preview environment end-to-end",
   "main": "src/index.js",
   "scripts": {
